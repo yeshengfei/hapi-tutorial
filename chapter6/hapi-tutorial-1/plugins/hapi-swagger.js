@@ -11,8 +11,13 @@ module.exports = [
     options: {
       info: {
         title: '接口文档',
-        version: package.version
+        version: package.version,
       },
+      // 定义接口以tags属性定义为分组
+      grouping: 'tags',
+      tags: [
+        { name: 'tests', description: '测试相关' },
+      ]
     }
   }
 ]

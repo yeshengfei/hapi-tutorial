@@ -6,7 +6,7 @@ module.exports = [
       reply('hello hapi');
     },
     config: {
-      tags: ['api', 'shops'],
+      tags: ['api', 'tests'],
     }
   },
 ]
