@@ -1,0 +1,20 @@
+{
+  "name": "hapi-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "github": "https://github.com/yeshengfei/hapi-tutorial.git",
+  "email": "ye.shengfei@qq.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.6.3",
+    "hapi-swagger": "^7.10.0",    
+    "inert": "^4.2.1",
+    "package": "^1.0.1",
+    "vision": "^4.1.1"
+  }
+}
