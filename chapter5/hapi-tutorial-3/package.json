@@ -1,0 +1,22 @@
+{
+  "name": "hapi-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "github": "https://github.com/yeshengfei/hapi-tutorial.git",
+  "email": "ye.shengfei@qq.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "env2": "^2.2.2",
+    "hapi": "^16.6.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
