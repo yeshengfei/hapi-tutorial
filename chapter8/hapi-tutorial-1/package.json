@@ -7,13 +7,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "node_modules/.bin/eslint app.js routes config plugins migrations seeders --fix"
+    "lint": "node_modules/.bin/eslint app.js routes config plugins migrations seeders  --fix"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "env2": "^2.2.2",
     "hapi": "^16.6.3",
+    "hapi-pagination": "^1.22.0",
     "hapi-swagger": "^7.10.0",
     "inert": "^4.2.1",
     "joi": "^13.6.0",

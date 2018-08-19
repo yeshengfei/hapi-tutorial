@@ -1,6 +1,6 @@
 const inert = require('inert');
 const vision = require('vision');
-const package = require('package');
+const packageModule = require('package');
 const hapiSwagger = require('hapi-swagger');
 
 module.exports = [
@@ -11,13 +11,13 @@ module.exports = [
     options: {
       info: {
         title: '接口文档',
-        version: package.version,
+        version: packageModule.version,
       },
       // 定义接口以tags属性定义为分组
       grouping: 'tags',
       tags: [
-        { name: 'tests', description: '测试相关' },        
-      ]
-    }
-  }
-]
+        { name: 'tests', description: '测试相关' },
+      ],
+    },
+  },
+];
