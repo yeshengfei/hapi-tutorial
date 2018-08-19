@@ -25,6 +25,7 @@ const init = async () => {
   ]);
   // 启动服务
   await server.start();
+
   console.log(`Server running at: ${server.info.uri}`);
 };
 
