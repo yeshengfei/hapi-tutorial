@@ -14,9 +14,10 @@ module.exports = [
       description: '获取店铺列表',
       validate: {
         query: {
-          limit: Joi.number().integer().min(1).default(1)
+          limit: Joi.number().integer().min(1).default(10)
             .description('每页的条目数'),
-          page: Joi.number().integer().default(10).description('页码数'),
+          page: Joi.number().integer().min(1).default(1)
+            .description('页码数'),
         },
       },
     },
