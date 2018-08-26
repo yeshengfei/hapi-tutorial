@@ -1,7 +1,7 @@
 const { env } = process;
 
 const config = {
-  HOST: env.HOST,
-  PORT: env.PORT,
+  host: env.HOST,
+  port: env.PORT,
 };
 module.exports = config;

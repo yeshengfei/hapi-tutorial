@@ -7,8 +7,8 @@ const pluginHapiSwagger = require('./plugins/hapi-swagger');
 const server = new Hapi.Server();
 // 配置服务器启动host与端口
 server.connection({
-  port: config.PORT,
-  host: config.HOST,
+  port: config.port,
+  host: config.host,
 });
 
 const init = async () => {
