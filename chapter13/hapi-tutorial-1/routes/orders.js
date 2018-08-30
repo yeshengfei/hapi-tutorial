@@ -60,7 +60,8 @@ module.exports = [
     path: `/${GROUP_NAME}/{orderId}/pay`,
     handler: async (request, reply) => {
       // 从用户表中获取 openid
-      const openid = 111;
+      const user = await models.users.findOne({ id: request.auth.credentials.userId });
+      const { openid } = user;
       // 构造 unifiedorder 所需入参
       const unifiedorderObj = {
         appid: config.wxAppid, // 小程序id
@@ -93,7 +94,7 @@ module.exports = [
         sign,
       };
       // 将需要 post 出去的订单参数，转换位 xml 格式
-      const builder = new xml2js.Builder();
+      const builder = new xml2js.Builder({ rootName: 'xml', headless: true });
       const unifiedorderXML = builder.buildObject(unifiedorderWithSign);
       const result = await axios({
         url: 'https://api.mch.weixin.qq.com/pay/unifiedorder',
@@ -129,6 +130,38 @@ module.exports = [
         },
         ...jwtHeaderDefine,
       },
+    },
+  },
+  {
+    method: 'POST',
+    path: `/${GROUP_NAME}/pay/notify`,
+    handler: async (request, reply) => {
+      xml2js.parseString(request.payload, async (err, parsedResult) => {
+        if (parsedResult.xml.return_code[0] === 'SUCCESS') {
+          // 微信统一支付状态成功，需要检验本地数据的逻辑一致性
+          // 省略...细节逻辑校验
+          // 更新该订单编号下的支付状态未已支付
+          const orderId = parsedResult.xml.out_trade_no[0];
+          const orderResult = await models.orders.findOne({ id: orderId });
+          orderResult.payment_status = '1';
+          await orderResult.save();
+          // 返回微信，校验成功
+          const retVal = {
+            return_code: 'SUCCESS',
+            return_msg: 'OK',
+          };
+          const builder = new xml2js.Builder({
+            rootName: 'xml',
+            headless: true,
+          });
+          reply(builder.buildObject(retVal));
+        }
+      });
+    },
+    config: {
+      tags: ['api', GROUP_NAME],
+      description: '微信支付成功的消息推送',
+      auth: false,
     },
   },
 ];
