@@ -68,10 +68,10 @@ module.exports = [
         body: '小程序支付', // 商品简单描述
         mch_id: config.wxMchid, // 商户号
         nonce_str: Math.random().toString(36).substr(2, 15), // 随机字符串
-        notify_url: 'https://yourhost.com/orders/payNotify', // 支付成功的回调地址
+        notify_url: 'https://yourhost.com/orders/pay/notify', // 支付成功的回调地址
         openid, // 用户 openid
         out_trade_no: request.params.orderId, // 商户订单号
-        spbill_create_ip: request.connection.address, // 服务器 ip
+        spbill_create_ip: request.connection.address, // 调用支付接口的用户 ip
         total_fee: 1, // 总金额，单位为分
         trade_type: 'JSAPI', // 交易类型，默认
       };
