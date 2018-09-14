@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => sequelize.define(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false,
     },
     nick_name: DataTypes.STRING,
     avatar_url: DataTypes.STRING,
