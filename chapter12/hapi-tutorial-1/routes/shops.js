@@ -22,6 +22,7 @@ module.exports = [
     },
     config: {
       tags: ['api', GROUP_NAME],
+      auth: false,
       description: '获取店铺列表',
       validate: {
         query: {
@@ -52,6 +53,7 @@ module.exports = [
     },
     config: {
       tags: ['api', GROUP_NAME],
+      auth: false,
       description: '获取店铺的商品列表',
       validate: {
         params: {
