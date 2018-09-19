@@ -2,6 +2,8 @@
 
 掘金小册的配套章节案例教程
 
+掘金小册资料地址 (https://juejin.im/book/5b63fdba6fb9a04fde5ae6d0)[https://juejin.im/book/5b63fdba6fb9a04fde5ae6d0]
+
 进入相关的工程，请自行执行 `npm i` 安装项目库的基础依赖，并在有 .env.example 的项目中，复制一份 .env 配置项
 
 ## FAQ
