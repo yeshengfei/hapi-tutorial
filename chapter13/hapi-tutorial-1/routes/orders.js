@@ -71,7 +71,7 @@ module.exports = [
         notify_url: 'https://yourhost.com/orders/pay/notify', // 支付成功的回调地址
         openid, // 用户 openid
         out_trade_no: request.params.orderId, // 商户订单号
-        spbill_create_ip: request.connection.address, // 调用支付接口的用户 ip
+        spbill_create_ip: request.info.remoteAddress, // 调用支付接口的用户 ip
         total_fee: 1, // 总金额，单位为分
         trade_type: 'JSAPI', // 交易类型，默认
       };
