@@ -13,7 +13,7 @@ const validate = (decoded, request, callback) => {
   */
 
   // decoded 为 JWT payload 被解码后的数据
-  const userId = decoded.userId || {};
+  const { userId } = decoded;
 
   if (!userId) {
     return callback(error, false, userId);
