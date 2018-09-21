@@ -60,7 +60,7 @@ module.exports = [
     path: `/${GROUP_NAME}/{orderId}/pay`,
     handler: async (request, reply) => {
       // 从用户表中获取 openid
-      const user = await models.users.findOne({ id: request.auth.credentials.userId });
+      const user = await models.users.findOne({ where: { id: request.auth.credentials.userId } });
       const { openid } = user;
       // 构造 unifiedorder 所需入参
       const unifiedorderObj = {
@@ -142,7 +142,7 @@ module.exports = [
           // 省略...细节逻辑校验
           // 更新该订单编号下的支付状态未已支付
           const orderId = parsedResult.xml.out_trade_no[0];
-          const orderResult = await models.orders.findOne({ id: orderId });
+          const orderResult = await models.orders.findOne({ where: { id: orderId } });
           orderResult.payment_status = '1';
           await orderResult.save();
           // 返回微信，校验成功
